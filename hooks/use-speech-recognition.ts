@@ -68,13 +68,13 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
         }
 
         recognitionRef.current.onerror = (event: any) => {
-          console.error("[v0] Speech recognition error:", event.error)
+          console.error("[] Speech recognition error:", event.error)
           setError(`Speech recognition error: ${event.error}`)
           setIsListening(false)
         }
 
         recognitionRef.current.onend = () => {
-          console.log("[v0] Speech recognition ended")
+          console.log("[] Speech recognition ended")
           setIsListening(false)
         }
       } else {
@@ -96,9 +96,9 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
         recognitionRef.current.start()
         setIsListening(true)
         setError(null)
-        console.log("[v0] Speech recognition started")
+        console.log("[] Speech recognition started")
       } catch (err) {
-        console.error("[v0] Error starting recognition:", err)
+        console.error("[] Error starting recognition:", err)
         setError("Failed to start speech recognition")
       }
     }
@@ -108,7 +108,7 @@ export function useSpeechRecognition(): UseSpeechRecognitionReturn {
     if (recognitionRef.current && isListening) {
       recognitionRef.current.stop()
       setIsListening(false)
-      console.log("[v0] Speech recognition stopped")
+      console.log("[] Speech recognition stopped")
     }
   }, [isListening])
 
