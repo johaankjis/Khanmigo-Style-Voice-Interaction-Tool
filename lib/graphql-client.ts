@@ -30,7 +30,7 @@ export class GraphQLClient {
 
       return result.data as T
     } catch (error) {
-      console.error("[v0] GraphQL query error:", error)
+      console.error("[] GraphQL query error:", error)
       throw error
     }
   }
